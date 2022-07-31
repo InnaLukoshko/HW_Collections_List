@@ -28,18 +28,19 @@ public class ListUsers {
     public static void delete() throws IOException { // не получилось
         System.out.println("Введите логин пользователя, которого хотите удалить");
         String deleteLogin = enterLogin();
-//        for (Users user : users) {
-//            if (user.getLogin().equals(deleteLogin)) {
+        for (Users user : users) {
+            if (user.getLogin().equals(deleteLogin)) {
                 users.remove(new Users(deleteLogin));
-//            }
-//        }
-
+            }
+        }
+        System.out.println("Изменённая коллекция пользователей");
         users.forEach(x -> System.out.println(x + " "));
     }
 
     public static void find() throws IOException {
         System.out.println("Введите логин пользователя, которого хотите проверить на наличие в базе");
         String isLoginInBase = enterLogin();
+//        users.contains(isLoginInBase);
         for (Users user : users) {
             if (user.getLogin().equals(isLoginInBase)) {
                 System.out.println("Пользователь зарегистрирован");
